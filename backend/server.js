@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const userRoute =require("./routes/userRoute");
+const errorHandler = require("./middlewares/errorMiddleware");
 
 const app = express();
 
@@ -19,6 +20,9 @@ app.use("/api/users", userRoute)
 app.get("/", (req, res) => {
   res.send("Hello World");
 })
+
+//Error middleware
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
