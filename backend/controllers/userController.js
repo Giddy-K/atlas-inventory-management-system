@@ -1,7 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
-const bcrypt =require("bcryptjs");
+const bcrypt = require("bcryptjs");
 
 // Generate token
 const generateToken = (id) => {
@@ -67,8 +67,8 @@ const registerUser = asyncHandler(async (req, res) => {
 });
 
 // Login User
- const loginUser = asyncHandler (async (req, res) => {
-  const {email, password} = req.body
+const loginUser = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
 
   // Validate request
   if (!email || !password) {
@@ -78,29 +78,31 @@ const registerUser = asyncHandler(async (req, res) => {
 
   //Check if user exist
   const user = await User.findOne({
-    email
-  })
-   if(!user) {
+    email,
+  });
+  if (!user) {
     res.status(400);
     throw new Error("User not found, please signup");
-   }
+  }
 
-   //User exixts, check if password is correct
-   const passwordIsCorrect = await bcrypt.compare(password, user.password)
+  //User exixts, check if password is correct
+  const passwordIsCorrect = await bcrypt.compare(password, user.password);
 
-   // Generate Token
-   const token = generateToken(user._id);
+  // Generate Token
+  const token = generateToken(user._id);
 
-   //Send HTTP-Only cookie
-   res.cookie("token", token, {
-    path: "/",
-    httpOnly: true,
-    expires: new Date(Date.now() + 1000 * 86400), //One day
-    sameSite: "none",
-    secure: true,
-   });
+  //Send HTTP-Only cookie
+  if (passwordIsCorrect) {
+    res.cookie("token", token, {
+      path: "/",
+      httpOnly: true,
+      expires: new Date(Date.now() + 1000 * 86400), //One day
+      sameSite: "none",
+      secure: true,
+    });
+  }
 
-   if(user && passwordIsCorrect) {
+  if (user && passwordIsCorrect) {
     const { _id, name, email, photo, phone, bio } = user;
     res.status(200).json({
       _id,
@@ -111,13 +113,53 @@ const registerUser = asyncHandler(async (req, res) => {
       bio,
       token,
     });
-   } else {
+  } else {
     res.status(400);
-    throw new Error("Invalid email or password")
-   }
- });
+    throw new Error("Invalid email or password");
+  }
+});
+
+//Logout user
+const logout = asyncHandler(async (req, res) => {
+  res.cookie("token", "", {
+    path: "/",
+    httpOnly: true,
+    expires: new Date(0), //One day
+    sameSite: "none",
+    secure: true,
+  });
+  return res.status(200).json({ message: "Successfully Logged Out!" });
+});
+
+//Get user data
+const getUser = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user._id);
+
+  if (user) {
+    const { _id, name, email, photo, phone, bio } = user;
+    res.status(200).json({
+      _id,
+      name,
+      email,
+      photo,
+      phone,
+      bio,
+    });
+  } else {
+    res.status(400);
+    throw new Error("User Not Found!");
+  }
+});
+
+//get login status
+const loginStatus = asyncHandler(async (req,res) => {
+res.send("User logged in")
+});
 
 module.exports = {
   registerUser,
-  loginUser
+  loginUser,
+  logout,
+  getUser,
+  loginStatus,
 };
