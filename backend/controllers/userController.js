@@ -6,6 +6,8 @@ const Token = require("../models/tokenModel");
 const crypto = require("crypto");
 const sendEmail = require("../utils/sendEmail");
 
+  //!Remember to set secure back to true!!!
+
 // Generate token
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1d" });
@@ -42,14 +44,14 @@ const registerUser = asyncHandler(async (req, res) => {
 
   //generate token
   const token = generateToken(user._id);
-
-  //Send HTTP-Only cookie
+  
+  //Send HTTP-Only cookie 
   res.cookie("token", token, {
     path: "/",
     httpOnly: true,
     expires: new Date(Date.now() + 1000 * 86400), //1 day
     sameSite: "none",
-    secure: true,
+    secure: false,
   });
 
   if (user) {
@@ -101,7 +103,7 @@ const loginUser = asyncHandler(async (req, res) => {
       httpOnly: true,
       expires: new Date(Date.now() + 1000 * 86400), //One day
       sameSite: "none",
-      secure: true,
+      secure: false,
     });
   }
 
@@ -129,7 +131,7 @@ const logout = asyncHandler(async (req, res) => {
     httpOnly: true,
     expires: new Date(0), //One day
     sameSite: "none",
-    secure: true,
+    secure: false,
   });
   return res.status(200).json({ message: "Successfully Logged Out!" });
 });
@@ -170,6 +172,7 @@ const loginStatus = asyncHandler(async (req, res) => {
   return res.json(false);
 });
 
+//Update user data
 const updateUser = asyncHandler(async (res, req) => {
   const user = await User.findById(req.user._id);
 
