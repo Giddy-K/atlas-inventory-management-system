@@ -15,11 +15,11 @@
   --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 
   --color-purple: #9d0191;
-  --color-orange: #ff7722;
+  --color-orange: rgb(0, 4, 255);
 
   --color-primary: #007bff;
   --color-success: #28a745;
-  --color-danger: orangered;
+  --color-danger: rgb(0, 4, 255);
 }
 
 * {
