@@ -1,5 +1,5 @@
 import React from "react";
-import { GiAtlas } from "react-icons/gi";
+import { FaGlobeAfrica } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Home.scss";
 import heroImg from "../../assets/inv-img.png";
@@ -9,7 +9,7 @@ const Home = () => {
     <div className="home">
       <nav className="container --flex-between ">
         <div className="logo">
-          <GiAtlas size={35} />
+          <FaGlobeAfrica size={55} />
         </div>
 
         <ul className="home-links">
