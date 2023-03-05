@@ -263,14 +263,14 @@ const forgotPassword = asyncHandler(async (req, res) => {
   }).save();
 
   //Construct Reset url
-  const resetUrl = `${process.env.FRONTEND_URL}/resetpasswword/${resetToken}`;
+  const resetUrl = `${process.env.FRONTEND_URL}/resetpassword/${resetToken}`;
 
   //Reset Email
   const message = `<h2>Hello ${user.name}</h2>
   <p>This reset link is valid for only 30 minutes.</p>
   <a href=${resetUrl}> clicktracking=off${resetUrl}</a>
   <p>Regards...</p>
-  <p>Gideon.</p>
+  <p>Gideon.K</p>
   `;
 
   const subject = "Password reset request";
