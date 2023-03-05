@@ -228,6 +228,7 @@ const changePassword = asyncHandler(async (res, req) => {
   }
 });
 
+//Forgot password
 const forgotPassword = asyncHandler(async (req, res) => {
   const { email } = req.body;
   const user = await User.findOne({ email });

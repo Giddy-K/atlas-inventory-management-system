@@ -17,9 +17,14 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://atlas-app.vercel.app"],
+    credentials: true,
+  })
+);
 
-app.use("/uploads", express.static(path.join(__dirname, "uploads")))
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 //Routes middleware
 app.use("/api/users", userRoute);
@@ -37,7 +42,7 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 
 //connect to DB and start server
-mongoose.set('strictQuery', true);
+mongoose.set("strictQuery", true);
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
