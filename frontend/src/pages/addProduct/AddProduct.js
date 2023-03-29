@@ -15,7 +15,7 @@ const initialState = {
   price: "",
 };
 
-export const AddProduct = () => {
+const AddProduct = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [product, setProduct] = useState(initialState);

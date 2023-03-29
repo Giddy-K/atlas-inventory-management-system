@@ -10,8 +10,15 @@ export const createProduct = async (formData) => {
   return response.data;
 };
 
+//Get all product
+export const getProducts = async () => {
+  const response = await axios.get(API_URL);
+  return response.data;
+};
+
 const productService = {
   createProduct,
+  getProducts,
 };
 
 export default productService;
