@@ -16,7 +16,7 @@ import {
   deleteProduct,
   getProducts,
 } from "../../../redux/features/product/productSlice";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ProductList = ({ products, isLoading }) => {
   const [search, setSearch] = useState("");
@@ -121,24 +121,24 @@ const ProductList = ({ products, isLoading }) => {
                       <td>{shortenText(name, 16)}</td>
                       <td>{category}</td>
                       <td>
-                        {"$"}
+                        {"KSH "}
                         {price}
                       </td>
                       <td>{quantity}</td>
                       <td>
-                        {"$"}
+                        {"KSH "}
                         {price * quantity}
                       </td>
                       <td className="icons">
                         <span>
-                          {/* <Link to={`/product-detail/${_id}`}> */}
+                          <Link to={`/product-detail/${_id}`}>
                             <AiOutlineEye size={25} color={"purple"} />
-                          {/* </Link> */}
+                          </Link>
                         </span>
                         <span>
-                          {/* <Link to={`/edit-product/${_id}`}> */}
+                          <Link to={`/edit-product/${_id}`}>
                             <FaEdit size={20} color={"green"} />
-                          {/* </Link> */}
+                          </Link>
                         </span>
                         <span>
                           <FaTrashAlt

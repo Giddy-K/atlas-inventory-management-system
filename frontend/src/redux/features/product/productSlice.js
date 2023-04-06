@@ -135,7 +135,7 @@ const productSlice = createSlice({
       });
       let count = 0;
       array.forEach((number) => {
-        if (number === 0 || number === "0") {
+        if (number <= 20 || number <= "20") {
           count += 1;
         }
       });
