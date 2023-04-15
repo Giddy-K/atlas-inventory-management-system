@@ -5,9 +5,9 @@ import Card from "../../components/card/Card";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { LoginUser, validateEmail } from "../../services/authService";
 import { SET_LOGIN, SET_NAME } from "../../redux/features/auth/authSlice";
 import Loader from "../../components/loader/Loader";
+import { loginUser, validateEmail } from "../../services/authService";
 
 const initialState = {
   email: "",
@@ -43,7 +43,7 @@ const Login = () => {
     };
     setIsLoading(true)
     try {
-      const data = await LoginUser(userData)
+      const data = await loginUser(userData)
        console.log(data);
       await dispatch(SET_LOGIN(true));
       await dispatch(SET_NAME(data.name));

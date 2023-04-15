@@ -11,7 +11,7 @@ const initialState = {
     phone: "",
     bio: "",
     photo: "",
-  }
+  },
 };
 
 const authSlice = createSlice({
@@ -31,7 +31,7 @@ const authSlice = createSlice({
       state.user.email = profile.email;
       state.user.phone = profile.phone;
       state.user.bio = profile.bio;
-      state.user.photo = profile.phone;
+      state.user.photo = profile.photo;
     },
   },
 });
