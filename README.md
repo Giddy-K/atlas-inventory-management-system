@@ -1,5 +1,6 @@
-Atlas Stock and Inventory Management System
-Table of Contents
+# Atlas Stock and Inventory Management System
+
+## Table of Contents
 
     Project Description
     Features
@@ -12,7 +13,7 @@ Table of Contents
     Future Enhancements
     License
 
-Project Description
+## Project Description
 
 The Atlas Stock and Inventory Management System is a comprehensive solution for tracking and managing stock levels, sales, and supplier details for businesses. Designed to streamline inventory processes, the system ensures efficient stock handling, prevents overstocking or understocking, and provides valuable insights through real-time analytics.
 
@@ -26,105 +27,107 @@ Features
     User Roles: Role-based access for administrators and staff.
     Responsive Design: Optimized for both desktop and mobile devices.
 
-Technologies Used
+## Technologies Used
 
-Frontend:
+*Frontend:*
 
-    HTML5, CSS3, JavaScript
-    Framework: React.js
+HTML5, CSS3, JavaScript
+Framework: React.js
 
-Backend:
+*Backend:*
 
-    Node.js with Express.js
+Node.js with Express.js
 
-Database:
+*Database:*
 
-    MongoDB (NoSQL database)
+MongoDB (NoSQL database)
 
-Version Control:
+*Version Control:*
 
-    Git and GitHub
+Git and GitHub
 
-Deployment:
+*Deployment:*
 
-    Heroku / Render (for web hosting)
-    MongoDB Atlas (for database hosting)
+Heroku / Render (for web hosting)
+MongoDB Atlas (for database hosting)
 
-System Architecture
+## System Architecture
 
 The project follows a three-tier architecture:
 
-    Frontend: The user-facing application developed using React.js, which communicates with the backend through REST APIs.
-    Backend: A Node.js server with Express.js, which handles requests, processes data, and manages business logic.
-    Database: A MongoDB database hosted on MongoDB Atlas for storing stock, sales, and supplier data.
+Frontend: The user-facing application developed using React.js, which communicates with the backend through REST APIs.
 
-(Include a diagram if possible.)
-Setup and Installation
+Backend: A Node.js server with Express.js, which handles requests, processes data, and manages business logic.
 
-    Clone the Repository:
+Database: A MongoDB database hosted on MongoDB Atlas for storing stock, sales, and supplier data.
 
-git clone https://github.com/your-username/atlas-inventory-system.git
-cd atlas-inventory-system
+## Setup and Installation
 
-Install Dependencies:
+*Clone the Repository:*
 
-npm install
+    git clone https://github.com/Giddy-K/atlas-inventory-management-system.git
 
-Set Up Environment Variables: Create a .env file in the root directory and add the following:
+    cd atlas-inventory-management-system
 
-PORT=5000
-MONGO_URI=<Your MongoDB URI>
-JWT_SECRET=<Your JWT Secret>
+*Install Dependencies:*
 
-Run the Application:
+    npm install
 
-    Start the backend server:
+*Set Up Environment Variables: Create a .env file in the root directory and add the following:*
 
-npm run server
+    PORT=5000
+    MONGO_URI=<Your MongoDB URI>
+    JWT_SECRET=<Your JWT Secret>
 
-Start the frontend application:
+*Run the Application:*
 
-        npm run client
+*Start the backend server:*
 
-    Access the Application: Open your browser and navigate to http://localhost:3000.
+    npm start
+
+*Start the frontend application:*
+
+    cd frontend
+
+    npm install
+    
+    npm start
+
+    Access the Application: Open your browser and navigate to http://localhost:5000.
 
 Usage
 
-    Login: Access the system using your credentials.
-    Dashboard: View key metrics and reports at a glance.
-    Manage Stock: Add, update, or remove items from the inventory.
-    Record Sales: Log sales transactions to update stock levels automatically.
-    View Reports: Generate inventory and sales reports for decision-making.
+Login: Access the system using your credentials.
+Dashboard: View key metrics and reports at a glance.
+Manage Stock: Add, update, or remove items from the inventory.
+Record Sales: Log sales transactions to update stock levels automatically.
+View Reports: Generate inventory and sales reports for decision-making.
 
 Team Members
 
-    Gideon Kaiyian - Full-stack Developer
-    Nathan Nyamira - Backend Specialist
+`Gideon Kaiyian - Full-stack Developer
+Nathan Nyamira - Backend Specialist`
 
 Challenges and Learnings
 Challenges
 
-    Designing a responsive interface that caters to all device sizes.
-    Implementing secure user authentication and role-based access control.
-    Synchronizing real-time updates between the frontend and backend.
+Designing a responsive interface that caters to all device sizes.
+Implementing secure user authentication and role-based access control.
+Synchronizing real-time updates between the frontend and backend.
 
 Learnings
 
-    Improved understanding of full-stack development processes.
-    Enhanced skills in MongoDB aggregation and advanced query techniques.
-    Strengthened collaboration skills using version control and branch management.
+Improved understanding of full-stack development processes.
+Enhanced skills in MongoDB aggregation and advanced query techniques.
+Strengthened collaboration skills using version control and branch management.
 
 Future Enhancements
 
-    Integrate barcode scanning for faster stock management.
-    Add multi-language support for a broader user base.
-    Implement advanced analytics using machine learning for demand forecasting.
+Integrate barcode scanning for faster stock management.
+Add multi-language support for a broader user base.
+Implement advanced analytics using machine learning for demand forecasting.
+integrate it to a Point-Of-Sale system
 
 License
 
-This project is licensed under the MIT License.
-
-Atlas Stock and Inventory management system.
-This system manages the stock and inventory in a company.
-Building this project for my Final Diploma Year.
-@All rights Reserved.
+No license for now.
